@@ -31,3 +31,32 @@ def d20Check(mod = 0, prof = 0, adv = None):
     result = roll + mod + prof  #Adds the relevant ability modifier and proficiency (if applicable)
     return result    
 
+
+
+# Make a class for spells. It contains properties for all the details of a spell.
+class spell:
+    def __init__(self, name, formula, hurt, LV, diceSides, diceNum, fixedMod, *, dmgType = None):
+
+        self.name = name
+        self.formula = formula
+        self.hurt = bool(hurt)
+        self.LV = int(LV)
+        self.diceSides = int(diceSides)
+        self.diceNum = int(diceNum)
+        self.fixedMod = int(fixedMod)
+        self.dmgType = dmgType
+
+    #diceNum usually depends on character level, we record the minimum but need
+    # a way to update it before it's called.
+    def diceNumSynch(self, charLV):
+        match self.formula:
+            case "6Scaling":
+                self.diceNum = 1 + (charLV + 1)//6
+
+            case _:
+                raise Exception("formula for the number of dice not recognised. \n Fix the \"formula\" section of the spell entry, or add new case in the diceNumSynch function")
+
+
+
+# TESTS:
+#REMEMBER - do NOT add tests to the staging area.
