@@ -56,6 +56,18 @@ class spell:
         self.fixedMod = int(fixedMod)
         self.dmgType = dmgType
 
+    def checkData(self):
+        print(
+            f"{self.name} has the following properties:",
+            f"It {spellEffect(self.hurt)}",
+            f"It is a level {self.LV} spell",
+            f"It uses {self.diceSides}-sided dice",
+            f"Number of dice decided by the {self.formula} formula, a minimum of {self.diceNum}",
+            f"It adds an extra {self.fixedMod} points to the roll",
+            f"If it deals damage, its type is {self.dmgType}",
+            sep="\n"
+        )
+
     #diceNum usually depends on character level, we record the minimum but need
     # a way to update it before it's called.
     def diceNumSynch(self, charLV):
