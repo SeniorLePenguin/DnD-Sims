@@ -1,6 +1,8 @@
 import random 
 
 
+# region Core functions
+
 # Returns a list of values of 'number' rolled dice with the given sides
 def rollDice(sides = 20, number = 1):
     result = [random.randrange(1, sides + 1) for x in range(number)]
@@ -56,7 +58,42 @@ class spell:
             case _:
                 raise Exception("formula for the number of dice not recognised. \n Fix the \"formula\" section of the spell entry, or add new case in the diceNumSynch function")
 
+#endregion
 
+
+
+# region Data import
+
+def HealOrHurt(word):
+    match word:
+        case "Heal":
+            return False
+        case "Dmg":
+            return True
+
+        case _:
+            raise Exception("Unexpected value for the healing/damaging variable in the cvs")
+
+
+spelldict = {}
+with open("./SpellList.csv", "r") as spellData:
+    next(spellData)
+
+    for line in spellData:
+        entries = line.strip('\n').split(",")
+
+        spelldict[entries[0]] = spell(
+            name = entries[0], 
+            formula = entries [2], 
+            hurt=HealOrHurt(entries[3]),
+            LV = int(entries[4]),
+            diceNum = int(entries[5]),
+            diceSides = int(entries[6]),
+            fixedMod = int(entries[7]),
+            dmgType = entries[1]
+            )
+
+# endregion
 
 # TESTS:
 #REMEMBER - do NOT add tests to the staging area.
