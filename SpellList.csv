@@ -1,3 +1,2 @@
-,,,,,,,,
-,Name,Dmg Type,DiceFormula,Heal/Dmg,LV,DiceNum,DiceSides,Fixed Bonus
-,Poison Spray,Poison,6Scaling,Dmg,0,1,12,0
+Name,Dmg Type,DiceFormula,Heal/Dmg,LV,DiceNum,DiceSides,Fixed Bonus
+Poison Spray,Poison,6Scaling,Dmg,0,1,12,0
