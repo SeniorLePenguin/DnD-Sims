@@ -33,6 +33,14 @@ def d20Check(mod = 0, prof = 0, adv = None):
     result = roll + mod + prof  #Adds the relevant ability modifier and proficiency (if applicable)
     return result    
 
+#Function describing to the user what the spell effect is
+def spellEffect(bool):
+    if bool is None:
+        return "only has an effect"
+    elif bool:
+        return "deals damage"
+    else:
+        return "heals HP"
 
 
 # Make a class for spells. It contains properties for all the details of a spell.
