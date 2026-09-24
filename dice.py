@@ -12,7 +12,7 @@ def rollDice(sides = 20, number = 1):
 # Returns the sum of all values, as well as the rolls (Maybe add a fixed value bonus as well, though I prefer to keep it basic for now)
 def diceSummer(sides, number):
     rolls = rollDice(sides=sides, number=number)
-    total = sum( rollDice(sides=sides, number=number) )
+    total = sum( rolls )
     return (total, rolls)
 
 
@@ -89,14 +89,13 @@ class spell:
 
         elif self.hurt:
             self.diceNumSynch(charLV)
-            castResult = diceSummer(self.diceNum, self.diceSides)
+            castResult = diceSummer(sides = self.diceSides, number = self.diceNum)
 
             print(f"You cast {self.name} and deal {castResult[0]} {self.dmgType} damage.", f"The rolls were: {castResult[1]}", sep="\n")
-            print(castResult)
 
         else:
             self.diceNumSynch()
-            castResult = diceSummer(self.diceNum, self.diceSides)
+            castResult = diceSummer(sides=self.diceSides, number = self.diceNum)
             print(f"You cast {self.name} and heal {castResult[0]} HP.", f"The rolls were: {castResult[1]}", sep="\n")
 
 #endregion
