@@ -42,6 +42,10 @@ def spellEffect(bool):
     else:
         return "heals HP"
 
+#endregion
+
+
+# region Spell Class
 
 # Make a class for spells. It contains properties for all the details of a spell.
 class spell:
@@ -77,6 +81,23 @@ class spell:
 
             case _:
                 raise Exception("formula for the number of dice not recognised. \n Fix the \"formula\" section of the spell entry, or add new case in the diceNumSynch function")
+
+    #
+    def cast(self, charLV):
+        if self.hurt is None:
+            print("This bitch aint interesting")
+
+        elif self.hurt:
+            self.diceNumSynch(charLV)
+            castResult = diceSummer(self.diceNum, self.diceSides)
+
+            print(f"You cast {self.name} and deal {castResult[0]} {self.dmgType} damage.", f"The rolls were: {castResult[1]}", sep="\n")
+            print(castResult)
+
+        else:
+            self.diceNumSynch()
+            castResult = diceSummer(self.diceNum, self.diceSides)
+            print(f"You cast {self.name} and heal {castResult[0]} HP.", f"The rolls were: {castResult[1]}", sep="\n")
 
 #endregion
 
