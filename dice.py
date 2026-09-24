@@ -95,14 +95,14 @@ def HealOrHurt(word):
             raise Exception("Unexpected value for the healing/damaging variable in the cvs")
 
 
-spelldict = {}
+spellDict = {}
 with open("./SpellList.csv", "r") as spellData:
     next(spellData)
 
     for line in spellData:
         entries = line.strip('\n').split(",")
 
-        spelldict[entries[0]] = spell(
+        spellDict[entries[0]] = spell(
             name = entries[0], 
             formula = entries [2], 
             hurt=HealOrHurt(entries[3]),
