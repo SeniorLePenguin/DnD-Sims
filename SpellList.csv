@@ -3,3 +3,13 @@ Poison Spray,Poison,6Scaling,Dmg,0,1,12,0
 Acid Splash,Acid,6Scaling,Dmg,0,1,6,0
 Chill Touch,Necrotic,6Scaling,Dmg,0,1,10,0
 Fire Bolt,Fire,6Scaling,Dmg,0,1,10,0
+Mind Sliver,Psychic,6Scaling,Dmg,0,1,6,0
+Produce Flame,Fire,6Scaling,Dmg,0,1,8,0
+Ray of Frost,Cold,6Scaling,Dmg,0,1,8,0
+Sacred Flame,Radiant,6Scaling,Dmg,0,1,8,0
+Shocking Grasp,Lightning,6Scaling,Dmg,0,1,8,0
+Starry Wisp,Radiant,6Scaling,Dmg,0,1,8,0
+Thorn Whip,Piercing,6Scaling,Dmg,0,1,6,0
+Thunderclap,Thunder,6Scaling,Dmg,0,1,6,0
+Vicious Mockery,Psychic,6Scaling,Dmg,0,1,6,0
+Word of Radiance,Radiant,6Scaling,Dmg,0,1,6,0
