@@ -10,9 +10,9 @@ def rollDice(sides = 20, number = 1):
 
 
 # Returns the sum of all values, as well as the rolls (Maybe add a fixed value bonus as well, though I prefer to keep it basic for now)
-def diceSummer(number, sides):
-    rolls = rollDice(number, sides)
-    total = sum( rollDice(number, sides) )
+def diceSummer(sides, number):
+    rolls = rollDice(sides=sides, number=number)
+    total = sum( rollDice(sides=sides, number=number) )
     return (total, rolls)
 
 
