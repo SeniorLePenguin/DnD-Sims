@@ -32,6 +32,3 @@ def character_summary(name = '', cl = '', subcl = '', species = ''):
     window2.mainloop()
 
 
-#TESTS - do NOT keep in commits
-
-character_summary('Bam Gnomey', 'Barbarian', 'Path of the Berserker', 'Gnome')
