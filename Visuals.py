@@ -1,13 +1,25 @@
 import tkinter as inter
+import math
 
 
 def character_summary(name = '', cl = '', subcl = '', species = ''):
     window2 = inter.Tk()
 
     # Define an image - portrait of the character and display it top-left on the grid
-    portraitSource = inter.PhotoImage(file = "./CharPortrait.png")
-    charPortrait = inter.Label(window2, image = portraitSource)
+    photo = inter.PhotoImage(file = "./CharPortrait.png")
+
+    width = 200
+    height = 200
+
+    factor = max(1, math.ceil(photo.width() / width), math.ceil(photo.height() / height))
+    photo = photo.subsample(factor)
+    charPortrait = inter.Label(window2, 
+                               image = photo, 
+                               width = width,
+                               height = height)
+    
     charPortrait.grid(row = 0, column = 0, rowspan = 2)
+
 
     # Adds a label with the character's name
     # This label will be STATIC for the duration of the window instance
