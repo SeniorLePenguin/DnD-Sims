@@ -1,4 +1,4 @@
-import Visuals
+import Visuals as vis
 
 # We need to make a class containing characters
 
@@ -13,5 +13,8 @@ class character:
 
         # Need to add a way to follow features and fears as well
         # But this is best left for the future
+
+    def summary(self):
+        vis.characterSummary(self.name, *self.background)
 
 
