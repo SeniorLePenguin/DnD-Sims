@@ -2,7 +2,7 @@ import tkinter as inter
 import math
 
 
-def character_summary(name = '', cl = '', subcl = '', species = ''):
+def characterSummary(name = '', cl = '', subcl = '', species = '', background = ''):
     window2 = inter.Tk()
 
     # Define an image - portrait of the character and display it top-left on the grid
@@ -28,7 +28,7 @@ def character_summary(name = '', cl = '', subcl = '', species = ''):
 
     # Adds a label with character details like clas and species
     # This label will be STATIC for the duration of the window instance
-    mechanicsInfo = f"{cl} ({subcl}) {species}"
+    mechanicsInfo = f"{cl} ({subcl}) {species} \n Background --> {background}"
     mechanicsLabel = inter.Label(window2, text = mechanicsInfo)
     mechanicsLabel.grid(row = 1, column = 1)
 
