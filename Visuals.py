@@ -2,7 +2,7 @@ import tkinter as inter
 import math
 
 
-def characterSummary(name = '', cl = '', subcl = '', species = '', background = ''):
+def characterSummary(name = '', cl = '', subcl = '', species = '', background = '', LV = 1):
     window2 = inter.Tk()
 
     # Define an image - portrait of the character and display it top-left on the grid

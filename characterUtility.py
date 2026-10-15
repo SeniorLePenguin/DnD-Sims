@@ -8,7 +8,7 @@ class character:
         self.name = "NO NAME"
 
         # Stores relevant details for the gameplay of the character
-        self.background = ["Class", "Subclass", "Species", "Background"]
+        self.background = ["Class", "Subclass", "Species", "Background", "LV"]
 
         # Stores the stats of the character, we keep only the values of the 6 stats in order:
         # STR, DEX, CON, WIS, INT, CHAR
