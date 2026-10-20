@@ -1,4 +1,6 @@
 import Visuals as vis
+import pathlib as pth
+import json
 
 # We need to make a class containing characters
 
