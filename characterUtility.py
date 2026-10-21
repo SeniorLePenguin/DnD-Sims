@@ -33,7 +33,18 @@ class character:
         # Need to add a way to follow features and fears as well
         # But this is best left for the future
 
+    # A function to open a window showing the summary information for the character
     def summary(self):
         vis.characterSummary(self.name, *self.background)
 
 
+# This dictionary will store all the loaded characters along with their nicknames
+loadedChars = {}
+
+
+savePath = pth.Path("saves_DONT_TOUCH")
+def loadChar(path):
+    with open(path) as file:
+        
+
+# TESTS - do not include in commit, only for local checks
