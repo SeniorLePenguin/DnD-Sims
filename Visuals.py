@@ -2,7 +2,7 @@ import tkinter as inter
 import math
 
 
-def characterSummary(name = '', cl = '', subcl = '', species = '', background = '', LV = 1):
+def characterSummary(name = '', cl = '', subcl = '', species = '', background = '', LV = 1, stats = [0,0,0,0,0,0]):
     window2 = inter.Tk()
 
     # Define an image - portrait of the character and display it top-left on the grid
@@ -32,13 +32,28 @@ def characterSummary(name = '', cl = '', subcl = '', species = '', background = 
     mechanicsLabel = inter.Label(window2, text = mechanicsInfo)
     mechanicsLabel.grid(row = 1, column = 1)
 
+
+
     # Adds a frame for the character statblock
-    stats = inter.Frame(window2)
-    stats.grid(row = 2, column = 0, rowspan = 2)
+    statDisplay = inter.Frame(window2)
+    statDisplay.grid(row = 2, column = 0, rowspan = 2)
+
+    # Then we display the actual stat values in the frame
+    valuesText = (
+        f"Strength: {stats[0]}\n"
+        f"Dexterity: {stats[1]}\n"
+        f"Constitution: {stats[2]}\n"
+        f"Intelligence: {stats[3]}\n"
+        f"Wisdom: {stats[4]}\n"
+        f"Charisma: {stats[5]}"
+    )
+    statValues = inter.Label(statDisplay, text = valuesText)
+    statValues.pack()
+
 
     #
     spells = inter.Text(window2, width = 40, height = 10)
-    spells.grid(row = 4, column = 1)
+    spells.grid(row = 3, column = 1)
     spells['state'] = 'disabled'
 
     window2.mainloop()
