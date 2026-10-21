@@ -36,7 +36,8 @@ class character:
 
     # A function to open a window showing the summary information for the character
     def summary(self):
-        vis.characterSummary(self.name, *self.background)
+        vis.characterSummary(name = self.name, cl = self.background[0], subcl = self.background[1], species = self.background[2],
+                             background = self.background[3], LV = self.background[4])
 
 
 # This dictionary will store all the loaded characters along with their nicknames
@@ -46,6 +47,16 @@ loadedChars = {}
 savePath = pth.Path("saves_DONT_TOUCH")
 def loadChar(path):
     with open(path) as file:
+        save = json.load(file)
+        nickname = save["nickname"]
+
+        charGeneral = save["general details"]
+
+        # Be CAREFUL to keep the arguent order the same for loadChar and
+        # the character init functions!!
+        loadedChars[nickname] = character(**charGeneral)
         
 
 # TESTS - do not include in commit, only for local checks
+loadChar(savePath/"myChar.json")
+loadedChars["myChar"].summary()
