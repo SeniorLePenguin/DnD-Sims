@@ -1,8 +1,9 @@
 import tkinter as inter
+import tkinter.scrolledtext as scroll
 import math
 
 
-def characterSummary(name = '', cl = '', subcl = '', species = '', background = '', LV = 1, stats = [0,0,0,0,0,0]):
+def characterSummary(name = '', cl = '', subcl = '', species = '', background = '', LV = 1, stats = [0,0,0,0,0,0], prepared = set()):
     window2 = inter.Tk()
 
     # Define an image - portrait of the character and display it top-left on the grid
@@ -40,20 +41,23 @@ def characterSummary(name = '', cl = '', subcl = '', species = '', background = 
 
     # Then we display the actual stat values in the frame
     valuesText = (
-        f"Strength: {stats[0]}\n"
-        f"Dexterity: {stats[1]}\n"
-        f"Constitution: {stats[2]}\n"
-        f"Intelligence: {stats[3]}\n"
-        f"Wisdom: {stats[4]}\n"
-        f"Charisma: {stats[5]}"
+        f"Strength: {stats[0]} ({stats[0]//2 -5}) \n"
+        f"Dexterity: {stats[1]} ({stats[1]//2 -5}) \n"
+        f"Constitution: {stats[2]} ({stats[2]//2 -5}) \n"
+        f"Intelligence: {stats[3]} ({stats[3]//2 -5}) \n"
+        f"Wisdom: {stats[4]} ({stats[4]//2 -5}) \n"
+        f"Charisma: {stats[5]} ({stats[5]//2 -5}) "
     )
     statValues = inter.Label(statDisplay, text = valuesText)
     statValues.pack()
 
 
-    #
-    spells = inter.Text(window2, width = 40, height = 10)
+    # This section displays the prepared spell list of the character
+    spells = scroll.ScrolledText(window2, width = 40, height = 10)
     spells.grid(row = 3, column = 1)
+    # Make the text object containing the spell list
+    preparedText = "\n".join(prepared)
+    spells.insert("1.0", preparedText)
     spells['state'] = 'disabled'
 
     window2.mainloop()
