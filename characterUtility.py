@@ -37,7 +37,7 @@ class character:
     # A function to open a window showing the summary information for the character
     def summary(self):
         vis.characterSummary(name = self.name, cl = self.background[0], subcl = self.background[1], species = self.background[2],
-                             background = self.background[3], LV = self.background[4])
+                             background = self.background[3], LV = self.background[4], stats = self.stats, prepared = self.prepared)
 
 
 # This dictionary will store all the loaded characters along with their nicknames
