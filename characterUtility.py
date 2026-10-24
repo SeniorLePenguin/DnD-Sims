@@ -48,15 +48,17 @@ savePath = pth.Path("saves_DONT_TOUCH")
 def loadChar(path):
     with open(path) as file:
         save = json.load(file)
-        nickname = save["nickname"]
 
+        # Load every section of character details into a different object
+        nickname = save["nickname"]
         charGeneral = save["general details"]
+        charSpells = save["spell details"]
+
+        charSpells["prepared spells"] = set(charSpells["prepared spells"])
 
         # Be CAREFUL to keep the arguent order the same for loadChar and
         # the character init functions!!
-        loadedChars[nickname] = character(**charGeneral)
+        loadedChars[nickname] = character(*charGeneral.values(), *charSpells.values())
         
 
 # TESTS - do not include in commit, only for local checks
-loadChar(savePath/"myChar.json")
-loadedChars["myChar"].summary()
